@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Metamorphous&display=swap');
+
 html {
   font-size: 10px;
-  background: url(https://i.imgur.com/b9r5sEL.jpg) bottom center;
+  background: url(/assets/background.jpg) bottom center;
   background-size: cover;
 }
 
 body,html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Metamorphous', cursive;
 }
 
 .keys {
@@ -19,16 +21,16 @@ body,html {
 }
 
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
+  border: .2rem solid #3c3c24;
+  border-radius: .6rem;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .07s ease;
   width: 10rem;
   text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
+  color: #baaa93;
+  background: rgba(60,60,36,0.4);
   text-shadow: 0 0 .5rem black;
 }
 
@@ -41,11 +43,12 @@ body,html {
 kbd {
   display: block;
   font-size: 4rem;
+  font-family: 'Metamorphous', cursive;
 }
 
 .sound {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
-  color: #ffc600;
+  color: #baaa93;
 }
