@@ -7,46 +7,47 @@
 </head>
 <body>
 
-
+<!-- keys -->
   <div class="keys">
     <div data-key="65" class="key">
-      <kbd>A</kbd>
+      <kbd>a</kbd>
       <span class="sound">choir</span>
     </div>
     <div data-key="83" class="key">
-      <kbd>S</kbd>
+      <kbd>s</kbd>
       <span class="sound">cello</span>
     </div>
     <div data-key="68" class="key">
-      <kbd>D</kbd>
+      <kbd>d</kbd>
       <span class="sound">bell</span>
     </div>
     <div data-key="70" class="key">
-      <kbd>F</kbd>
+      <kbd>f</kbd>
       <span class="sound">aum</span>
     </div>
     <div data-key="71" class="key">
-      <kbd>G</kbd>
+      <kbd>g</kbd>
       <span class="sound">aum</span>
     </div>
     <div data-key="72" class="key">
-      <kbd>H</kbd>
+      <kbd>h</kbd>
       <span class="sound">choir</span>
     </div>
     <div data-key="74" class="key">
-      <kbd>J</kbd>
+      <kbd>j</kbd>
       <span class="sound">cello</span>
     </div>
     <div data-key="75" class="key">
-      <kbd>K</kbd>
+      <kbd>k</kbd>
       <span class="sound">aum</span>
     </div>
     <div data-key="76" class="key">
-      <kbd>L</kbd>
+      <kbd>l</kbd>
       <span class="sound">choir</span>
     </div>
+    <div data-key="192"></div>
   </div>
-
+<!-- sound files -->
   <audio data-key="65" src="/assets/sounds/devine.wav"></audio>
   <audio data-key="83" src="/assets/sounds/fifthchord.wav"></audio>
   <audio data-key="68" src="/assets/sounds/bdtg5dt.wav"></audio>
@@ -56,21 +57,25 @@
   <audio data-key="74" src="/assets/sounds/Gstringarco.wav"></audio>
   <audio data-key="75" src="/assets/sounds/Chorale.wav"></audio>
   <audio data-key="76" src="/assets/sounds/greg3.wav"></audio>
+  <audio data-key="192" src="/assets/sounds/special.wav"></audio>
 
 <script>
 
-  function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
+  function removeTransition(event) {
+    if (event.propertyName !== 'transform') return; 
+    this.classList.remove('playing'); 
+    //this = <div data-key="" class="key">...</div>
   }
-  function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if (!audio) return; // stops function
+
+  function playSound(event) {
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${event.keyCode}"]`);
+    if (!audio) return; // stops function if wrong key is hit
     key.classList.add('playing');
     audio.currentTime = 0; // rewind to the start
     audio.play();
   }
+
   const keys = Array.from(document.querySelectorAll('.key'));
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   window.addEventListener('keydown', playSound);
