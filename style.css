@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Metamorphous&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Astloch|Metamorphous&display=swap');
 html {
   font-size: 10px;
   background: url(/assets/background.jpg) bottom center;
@@ -9,7 +8,7 @@ html {
 body,html {
   margin: 0;
   padding: 0;
-  font-family: 'Metamorphous', cursive;
+  font-family: 'Astloch', cursive;
 }
 
 .keys {
@@ -48,7 +47,7 @@ kbd {
 
 .sound {
   font-size: 1.2rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: .1rem;
   color: #baaa93;
 }
